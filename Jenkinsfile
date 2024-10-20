@@ -1,11 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage('git repo & clean') 
-        
+        stage('git repo & clean') {
             steps {
                 deleteDir() 
-               //bat "rmdir  /s /q TicketBookingServiceJunitTesting"
+                // Uncomment the line below if needed
+                // bat "rmdir /s /q TicketBookingServiceJunitTesting"
                 bat "git clone https://github.com/kishancs2020/TicketBookingServiceJunitTesting.git"
                 bat "mvn clean -f TicketBookingServiceJunitTesting"
             }
@@ -26,4 +26,4 @@ pipeline {
             }
         }
     }
-
+}
