@@ -2,6 +2,11 @@ pipeline {
     agent any
     stages {
         stage('git repo & clean') {
+            stage('Clean Workspace') {
+            steps {
+                deleteDir() // This will clean the workspace
+            }
+        }
             steps {
                //bat "rmdir  /s /q TicketBookingServiceJunitTesting"
                 bat "git clone https://github.com/kishancs2020/TicketBookingServiceJunitTesting.git"
